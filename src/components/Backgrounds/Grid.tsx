@@ -28,13 +28,13 @@ export interface GridProps
 }
 
 /**
- * Renders a grid background component.
+ * Renders a grid component with customizable size, color, and grid color.
  *
- * @param {object} props - The component properties.
- * @param {string} props.className - The additional class name for styling.
- * @param {string} props.size - The size of the grid background.
- * @param {string} props.color - The color of the grid background.
- * @returns {JSX.Element} The rendered grid background component.
+ * @param  size - The size of the grid. Default is md.
+ * @param  color - The color of the grid. Default is white.
+ * @param  gridColor - The color of the grid lines. Default is semi-transparent black.
+ * @param  className - Additional CSS class names for the component.
+ * @returns  The rendered grid component.
  */
 export function Grid({
   className,
