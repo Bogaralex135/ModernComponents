@@ -10,7 +10,19 @@ interface Props {
   gradientColor1?: Colors
   gradientColor2?: Colors
 }
-
+/**
+ * Renders a text reveal component.
+ *
+ * @param {Object} props - The component props.
+ * @param {ReactNode} props.children - The content to be revealed.
+ * @param {string} props.textColor - The color of the text.
+ * @param {string} props.bgTextColor - The color of the background text.
+ * @param {string} props.className - The CSS class name for the component.
+ * @param {boolean} props.gradient - Whether to use a gradient background.
+ * @param {string} props.gradientColor1 - The first color of the gradient background.
+ * @param {string} props.gradientColor2 - The second color of the gradient background.
+ * @returns {JSX.Element} The rendered text reveal component.
+ */
 export function TextReveal({
   children,
   textColor,
@@ -33,7 +45,7 @@ export function TextReveal({
         }`,
       }}
       {...props}>
-      <span>{children}</span>
+      {children}
     </div>
   )
 }

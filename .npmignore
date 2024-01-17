@@ -1,0 +1,14 @@
+src/pages/
+public/
+components/Examples/PageExample.jsx
+package-lock.json
+next.config.js
+node_modules/
+.vscode/
+.eslintrc.json
+.eslintrc
+.eslintignore
+.prettierrc
+.prettierignore
+next-env.d.ts
+.next/

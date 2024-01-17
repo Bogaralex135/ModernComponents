@@ -20,8 +20,8 @@ export default function PageExample() {
               Welcome to our Family Holding Company
             </h2>
             <p className='text-lg sm:text-xl lg:text-2xl text-gray-600'>
-              We strive for excellence and simplicity. Let's discuss how we can
-              work together.
+              We strive for excellence and simplicity. Let&aposs discuss how we
+              can work together.
             </p>
             <TextReveal
               bgTextColor='hsla(0, 0%, 100%, 0.5)'
