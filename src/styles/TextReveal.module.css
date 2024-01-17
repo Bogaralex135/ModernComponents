@@ -1,0 +1,15 @@
+.textReveal {
+  display: inline;
+  background-clip: text;
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  animation: scrollReveal linear forwards;
+  animation-timeline: view(y);
+  animation-range: cover 10vh 30vh;
+}
+
+@keyframes scrollReveal {
+  to {
+    background-size: 100% 100%;
+  }
+}
