@@ -1,15 +1,14 @@
 import PageExample from '@/components/Examples/PageExample'
-import { GridBg } from '@/components/Backgrounds/GridBg'
-import { TextReveal } from '@/components/TextEffects/TextReveal'
+import { Grid } from '@/components/Backgrounds/Grid'
 
 export default function Home() {
   return (
     <>
-      <GridBg color='bg-white' size='lg'>
+      <Grid size='xl' color='#fff' gridColor='#00000030'>
         <PageExample />
         <PageExample />
         <PageExample />
-      </GridBg>
+      </Grid>
     </>
   )
 }

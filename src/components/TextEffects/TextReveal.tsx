@@ -21,9 +21,6 @@ export function TextReveal({
   gradientColor2,
   ...props
 }: Props): JSX.Element {
-  const count = children.length
-  console.log(count)
-
   return (
     <div
       className={`${className} ${styles.textReveal}`}

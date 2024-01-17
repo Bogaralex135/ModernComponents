@@ -2,8 +2,9 @@ import { HtmlHTMLAttributes } from 'react'
 import { Colors } from '@/lib/types'
 import { cn } from '@/lib/utils'
 import { cva, VariantProps } from 'class-variance-authority'
+import { validateTailwindColor } from '@/lib/validations'
 
-const gridBgVariants = cva('h-full w-full sticky inset-0 -z-10', {
+export const gridBgVariants = cva('h-full w-full sticky inset-0 -z-10', {
   variants: {
     size: {
       sm: 'bg-[size:1rem_1rem]',
@@ -18,11 +19,12 @@ const gridBgVariants = cva('h-full w-full sticky inset-0 -z-10', {
   },
 })
 
-interface Props
+export interface GridProps
   extends HtmlHTMLAttributes<HTMLDivElement>,
     VariantProps<typeof gridBgVariants> {
   color?: Colors
   className?: string
+  gridColor?: Colors
 }
 
 /**
@@ -34,17 +36,29 @@ interface Props
  * @param {string} props.color - The color of the grid background.
  * @returns {JSX.Element} The rendered grid background component.
  */
-function GridBg({ className, size, color, ...props }: Props): JSX.Element {
-  return (
+export function Grid({
+  className,
+  size,
+  color = '#fff',
+  gridColor = '#00000020',
+  ...props
+}: GridProps): JSX.Element {
+  return validateTailwindColor(color) ? (
     <div
-      className={`${cn(
-        gridBgVariants({
-          size,
-        })
-      )} ${color} ${className} bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)]`}
+      className={`${cn(gridBgVariants({ size }))} ${color} ${className}`}
+      style={{
+        backgroundImage: `linear-gradient(to right,${gridColor} 1px,transparent 1px),linear-gradient(to bottom,${gridColor} 1px,transparent 1px)`,
+      }}
+      {...props}
+    />
+  ) : (
+    <div
+      className={`${cn(gridBgVariants({ size }))} ${className}`}
+      style={{
+        backgroundColor: color,
+        backgroundImage: `linear-gradient(to right,${gridColor} 1px,transparent 1px),linear-gradient(to bottom,${gridColor} 1px,transparent 1px)`,
+      }}
       {...props}
     />
   )
 }
-
-export { GridBg, gridBgVariants }
